@@ -1,1 +1,28 @@
-<p>register works!</p>
+<h1>Register</h1>
+
+<form [formGroup]="register" (ngSubmit)="handleSubmit()">
+  <div>
+    <input type="text" formControlName="email" id="email" placeholder="Email" />
+  </div>
+  <div>
+    <input type="text" formControlName="name" id="name" placeholder="Name" />
+  </div>
+  <div>
+    <input
+      type="text"
+      formControlName="surname"
+      id="surname"
+      placeholder="Surname"
+    />
+  </div>
+  <div>
+    <input
+      type="password"
+      formControlName="password"
+      id="password"
+      placeholder="Password"
+    />
+  </div>
+  <button>Submit</button>
+</form>
+<!-- {{ data$ | async }} -->
