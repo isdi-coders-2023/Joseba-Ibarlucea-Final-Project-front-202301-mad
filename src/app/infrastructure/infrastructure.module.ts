@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutComponent } from './layout/layout.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,6 @@ import { LayoutComponent } from './layout/layout.component';
     LayoutComponent,
   ],
   exports: [LayoutComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
 })
 export class InfrastructureModule {}

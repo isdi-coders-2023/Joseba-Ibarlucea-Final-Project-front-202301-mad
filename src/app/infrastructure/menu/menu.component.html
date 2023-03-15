@@ -1,6 +1,9 @@
 <nav>
   <ul>
-    <li><button>Register</button></li>
-    <li><button>Login</button></li>
+    <li *ngFor="let btn of btns">
+      <a [routerLink]="btn.path">
+        {{ btn.label }}
+      </a>
+    </li>
   </ul>
 </nav>
