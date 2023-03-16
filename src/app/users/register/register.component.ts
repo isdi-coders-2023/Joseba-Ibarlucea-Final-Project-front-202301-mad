@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import { UserRegister } from 'src/types/types';
+import { User } from 'src/types/types';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +20,7 @@ export class RegisterComponent {
   }
 
   handleSubmit() {
-    const newUser: UserRegister = {
+    const newUser: Partial<User> = {
       email: this.register.value.email,
       name: this.register.value.name,
       surname: this.register.value.surname,
