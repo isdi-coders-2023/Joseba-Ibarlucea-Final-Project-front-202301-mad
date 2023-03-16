@@ -3,10 +3,15 @@ export interface MenuItems {
   path: string;
 }
 
-export type UserRegister = {
+export type User = {
+  id: string;
   email: string;
   name: string;
   surname: string;
   password: string;
   favoriteTeam?: string;
+};
+
+export type Token = {
+  results: { token: string };
 };
