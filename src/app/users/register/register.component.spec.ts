@@ -8,7 +8,6 @@ import { RegisterComponent } from './register.component';
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
-  let service: UserService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,7 +16,6 @@ describe('RegisterComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(RegisterComponent);
-    service = TestBed.inject(UserService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
