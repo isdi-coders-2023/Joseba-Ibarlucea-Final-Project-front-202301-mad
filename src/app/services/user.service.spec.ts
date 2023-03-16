@@ -10,13 +10,14 @@ import { User } from 'src/types/types';
 describe('UserService', () => {
   let service: UserService;
   let httpTestingController: HttpTestingController;
+  const pass = '1234';
 
   const user: User = {
     id: '123',
     name: 'pepe',
     surname: 'test',
     email: 'pepe@test',
-    password: '1234',
+    password: pass,
   };
 
   beforeEach(() => {
