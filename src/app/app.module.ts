@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InfrastructureModule } from './infrastructure/infrastructure.module';
 import { UsersModule } from './users/users.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +18,12 @@ import { UsersModule } from './users/users.module';
     InfrastructureModule,
     UsersModule,
     HttpClientModule,
+    NoopAnimationsModule,
+    CommonModule,
+    RouterModule,
+    HomeModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
