@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
+import { TeamsModule } from '../teams/teams.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { RouterModule } from '@angular/router';
     LayoutComponent,
   ],
   exports: [LayoutComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TeamsModule],
 })
 export class InfrastructureModule {}
