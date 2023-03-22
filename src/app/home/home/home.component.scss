@@ -1,0 +1,13 @@
+@import "src/styles/globals.scss";
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  border: 1px solid black;
+
+  p {
+    font-family: $titillium;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+}
