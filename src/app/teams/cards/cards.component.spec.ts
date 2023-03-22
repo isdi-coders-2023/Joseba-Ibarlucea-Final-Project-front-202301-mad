@@ -17,7 +17,6 @@ describe('CardsComponent', () => {
 
     fixture = TestBed.createComponent(CardsComponent);
     component = fixture.componentInstance;
-    service = TestBed.inject(TeamService);
     fixture.detectChanges();
   });
 

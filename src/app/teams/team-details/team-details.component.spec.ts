@@ -1,10 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import {
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { TeamService } from 'src/app/services/teams/team.service';
 import { TeamDetailsComponent } from './team-details.component';
@@ -12,7 +7,7 @@ import { BehaviorSubject, of } from 'rxjs';
 
 describe('TeamDetailsComponent', () => {
   let component: TeamDetailsComponent;
-  let route: ActivatedRoute;
+
   let fixture: ComponentFixture<TeamDetailsComponent>;
 
   const mockTeamService = {
@@ -41,7 +36,6 @@ describe('TeamDetailsComponent', () => {
 
     fixture = TestBed.createComponent(TeamDetailsComponent);
     component = fixture.componentInstance;
-    route = TestBed.inject(ActivatedRoute);
   });
 
   it('should create', () => {

@@ -3,7 +3,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Team } from 'src/types/types';
 
 import { TeamService } from './team.service';
@@ -11,10 +11,6 @@ import { TeamService } from './team.service';
 describe('TeamService', () => {
   let service: TeamService;
   let httpController: HttpTestingController;
-  const mockResp: Team[] = [{ id: '2' } as Team, { id: '1' } as Team];
-  const mockService = {
-    teams$: new BehaviorSubject(mockResp),
-  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
