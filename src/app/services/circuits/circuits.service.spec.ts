@@ -3,19 +3,19 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { Team } from 'src/types/types';
+import { Circuit } from 'src/types/types';
 
-import { TeamService } from './team.service';
+import { CircuitsService } from './circuits.service';
 
-describe('TeamService', () => {
-  let service: TeamService;
+describe('CircuitsService', () => {
+  let service: CircuitsService;
   let httpController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
     });
-    service = TestBed.inject(TeamService);
+    service = TestBed.inject(CircuitsService);
     httpController = TestBed.inject(HttpTestingController);
   });
 
@@ -23,16 +23,14 @@ describe('TeamService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should query teams', () => {
-    const mockTeams: Team[] = [{ id: '2' }, { id: '1' }] as Team[];
-
-    service.queryTeams().subscribe((res) => {
-      expect(res).toEqual(mockTeams);
+  it('should some', () => {
+    service.queryCircuits().subscribe((res) => {
+      expect(res).toEqual([{} as Circuit]);
     });
 
-    const req = httpController.expectOne('http://localhost:4321/teams');
+    const req = httpController.expectOne('http://localhost:4321/circuits');
     expect(req.request.method).toEqual('GET');
-    req.flush({ results: [mockTeams] });
+    req.flush({ results: [{}] });
 
     httpController.verify();
   });
