@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TeamService } from 'src/app/services/teams/team.service';
-import { Team } from 'src/types/types';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +7,6 @@ import { Team } from 'src/types/types';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent {
-  teams: Team[] = [];
   constructor(public srv: TeamService) {}
 
   async ngOnInit(): Promise<void> {
