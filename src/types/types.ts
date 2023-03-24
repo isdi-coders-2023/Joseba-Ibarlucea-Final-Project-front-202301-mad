@@ -32,3 +32,23 @@ export type Team = {
   chassis: string;
   engine: string;
 };
+
+export type CircuitLocation = {
+  country: string;
+  city: string;
+};
+
+export type CircuitRecord = {
+  time: string;
+  driver: string;
+  year: string;
+};
+
+export type Circuit = {
+  id: string;
+  race: string;
+  image: string;
+  location: CircuitLocation;
+  laps: number;
+  lapRecord: CircuitRecord;
+};
