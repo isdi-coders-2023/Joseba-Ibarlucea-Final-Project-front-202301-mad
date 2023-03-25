@@ -12,7 +12,7 @@ export class HomeComponent {
     this.labels = [
       { label: 'Teams', path: 'teams' },
       { label: 'Drivers', path: 'teams' },
-      { label: 'Circuits', path: 'teams' },
+      { label: 'Circuits', path: 'circuits' },
       { label: 'Rankings', path: 'teams' },
     ];
     console.log(this.labels);
