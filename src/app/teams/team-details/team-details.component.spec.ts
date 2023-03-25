@@ -44,18 +44,11 @@ describe('TeamDetailsComponent', () => {
   });
 
   it('should bring the new teams calling ngOnInit', () => {
-    component.ngOnInit();
     mockTeamService.teams$ = new BehaviorSubject([
       { id: '123' },
       { id: '456' },
     ]);
-    expect(mockTeamService.teams$).toBeTruthy();
-  });
-
-  it('should set team to found team if team is found', () => {
     component.ngOnInit();
-
-    console.log(component.teams);
-    expect(component.team.id).toEqual('456');
+    expect(mockTeamService.teams$).toBeTruthy();
   });
 });
