@@ -1,0 +1,9 @@
+<p>rankings-cards works!</p>
+
+<ul>
+  <li *ngFor="let item of srv.ranking$ | async">
+    <div>
+      <p>{{ item.points }}</p>
+    </div>
+  </li>
+</ul>
