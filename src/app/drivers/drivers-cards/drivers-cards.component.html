@@ -1,0 +1,11 @@
+<p>drivers-cards works!</p>
+
+<ul>
+  <li *ngFor="let item of srv.drivers$ | async">
+    <a [routerLink]="item.id">
+      <div>
+        <p>{{ item.name }}</p>
+      </div>
+    </a>
+  </li>
+</ul>

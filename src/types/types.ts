@@ -46,3 +46,14 @@ export type Circuit = {
     year: string;
   };
 };
+
+export type Driver = {
+  id: string;
+  name: string;
+  image: string;
+  nationality: string;
+  racingNumber: number;
+  championships: number;
+  podiums: number;
+  team: string;
+};
