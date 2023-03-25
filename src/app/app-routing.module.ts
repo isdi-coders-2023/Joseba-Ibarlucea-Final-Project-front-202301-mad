@@ -5,6 +5,7 @@ import { CircuitsCardComponent } from './circuits/circuits-card/circuits-card.co
 import { DriverDetailComponent } from './drivers/driver-detail/driver-detail.component';
 import { DriversCardsComponent } from './drivers/drivers-cards/drivers-cards.component';
 import { HomeComponent } from './home/home/home.component';
+import { RankingsCardsComponent } from './rankings/rankings-cards/rankings-cards.component';
 import { CardsComponent } from './teams/cards/cards.component';
 import { TeamDetailsComponent } from './teams/team-details/team-details.component';
 import { LoginComponent } from './users/login/login.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'circuits/:id', component: CircuitDetailComponent },
   { path: 'drivers', component: DriversCardsComponent },
   { path: 'drivers/:id', component: DriverDetailComponent },
+  { path: 'rankings', component: RankingsCardsComponent },
 ];
 
 @NgModule({
