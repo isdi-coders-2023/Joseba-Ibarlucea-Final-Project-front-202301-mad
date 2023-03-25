@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { CircuitsModule } from './circuits/circuits.module';
+import { DriversModule } from './drivers/drivers.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { CircuitsModule } from './circuits/circuits.module';
     RouterModule,
     HomeModule,
     CircuitsModule,
+    DriversModule,
   ],
 
   providers: [],
