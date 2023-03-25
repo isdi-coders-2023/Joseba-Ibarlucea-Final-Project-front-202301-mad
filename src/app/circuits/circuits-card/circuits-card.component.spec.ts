@@ -11,10 +11,6 @@ describe('CircuitsCardComponent', () => {
   let component: CircuitsCardComponent;
   let fixture: ComponentFixture<CircuitsCardComponent>;
   let service: CircuitsService;
-  let httpController: HttpTestingController;
-  const mockService = {
-    queryCircuits: () => {},
-  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,7 +20,6 @@ describe('CircuitsCardComponent', () => {
 
     fixture = TestBed.createComponent(CircuitsCardComponent);
     service = TestBed.inject(CircuitsService);
-    httpController = TestBed.inject(HttpTestingController);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
