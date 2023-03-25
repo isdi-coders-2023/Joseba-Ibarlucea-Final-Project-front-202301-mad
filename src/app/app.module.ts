@@ -9,6 +9,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
+import { CircuitsModule } from './circuits/circuits.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { HomeModule } from './home/home.module';
     CommonModule,
     RouterModule,
     HomeModule,
+    CircuitsModule,
   ],
 
   providers: [],

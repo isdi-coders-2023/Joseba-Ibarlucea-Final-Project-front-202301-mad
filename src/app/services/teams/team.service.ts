@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Team } from 'src/types/types';
+import { UserService } from '../users/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +11,12 @@ export class TeamService {
   private query = 'http://localhost:4321/teams';
 
   private _teams$: BehaviorSubject<Team[]>;
+  token: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private user: UserService) {
     const initialTeam: Team[] = [];
     this._teams$ = new BehaviorSubject(initialTeam);
+    this.token = '';
   }
 
   public get teams$(): Observable<Team[]> {
@@ -21,6 +24,8 @@ export class TeamService {
   }
 
   public queryTeams(): Observable<Team[]> {
+    this.user.token$.subscribe((t) => (this.token = t.results.token));
+    console.log(this.token);
     return this.http.get<{ results: Array<Team[]> }>(this.query).pipe(
       map((t) => {
         this._teams$.next(t.results[0]);

@@ -1,19 +1,20 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { TeamService } from 'src/app/services/teams/team.service';
-import { TeamDetailsComponent } from './team-details.component';
 import { BehaviorSubject, of } from 'rxjs';
+import { CircuitsService } from 'src/app/services/circuits/circuits.service';
 
-describe('TeamDetailsComponent', () => {
-  let component: TeamDetailsComponent;
+import { CircuitDetailComponent } from './circuit-detail.component';
 
-  let fixture: ComponentFixture<TeamDetailsComponent>;
+describe('CircuitDetailComponent', () => {
+  let component: CircuitDetailComponent;
+  let fixture: ComponentFixture<CircuitDetailComponent>;
 
-  const mockTeamService = {
-    queryTeams: () => {},
-    teams$: new BehaviorSubject([{ id: '' }]),
+  const mockCircuitService = {
+    queryCircuit: () => {},
+    circuits$: new BehaviorSubject([{ id: '' }]),
   };
+
   const mockRoute = {
     params: of({ id: '123' }),
   };
@@ -27,14 +28,14 @@ describe('TeamDetailsComponent', () => {
           useValue: mockRoute,
         },
         {
-          provide: TeamService,
-          useValue: mockTeamService,
+          provide: CircuitsService,
+          useValue: mockCircuitService,
         },
       ],
-      declarations: [TeamDetailsComponent],
+      declarations: [CircuitDetailComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TeamDetailsComponent);
+    fixture = TestBed.createComponent(CircuitDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -43,12 +44,12 @@ describe('TeamDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should bring the new teams calling ngOnInit', () => {
-    mockTeamService.teams$ = new BehaviorSubject([
+  it('Should bring the circuits when ngOnInit is called', () => {
+    mockCircuitService.circuits$ = new BehaviorSubject([
       { id: '123' },
       { id: '456' },
     ]);
     component.ngOnInit();
-    expect(mockTeamService.teams$).toBeTruthy();
+    expect(mockCircuitService.circuits$).toBeTruthy();
   });
 });
