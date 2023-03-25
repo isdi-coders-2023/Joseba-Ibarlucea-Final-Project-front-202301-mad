@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { CircuitsModule } from './circuits/circuits.module';
 import { DriversModule } from './drivers/drivers.module';
+import { RankingsModule } from './rankings/rankings.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { DriversModule } from './drivers/drivers.module';
     HomeModule,
     CircuitsModule,
     DriversModule,
+    RankingsModule,
   ],
 
   providers: [],

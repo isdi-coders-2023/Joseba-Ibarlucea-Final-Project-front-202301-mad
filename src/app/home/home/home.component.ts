@@ -11,9 +11,9 @@ export class HomeComponent {
   constructor() {
     this.labels = [
       { label: 'Teams', path: 'teams' },
-      { label: 'Drivers', path: 'teams' },
+      { label: 'Drivers', path: 'drivers' },
       { label: 'Circuits', path: 'circuits' },
-      { label: 'Rankings', path: 'teams' },
+      { label: 'Rankings', path: 'rankings' },
     ];
     console.log(this.labels);
   }
