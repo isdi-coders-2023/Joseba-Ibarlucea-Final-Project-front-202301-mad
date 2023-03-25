@@ -10,7 +10,21 @@ import { Circuit } from 'src/types/types';
 })
 export class CircuitDetailComponent {
   circuits: Circuit[] = [];
-  circuit: Circuit = {} as Circuit;
+  circuit: Circuit = {
+    id: '',
+    race: '',
+    image: '',
+    location: {
+      country: '',
+      city: '',
+    },
+    laps: 0,
+    lapRecord: {
+      time: '',
+      driver: '',
+      year: '',
+    },
+  } as Circuit;
   params: Params = { id: '' };
   constructor(public srv: CircuitsService, private route: ActivatedRoute) {}
 

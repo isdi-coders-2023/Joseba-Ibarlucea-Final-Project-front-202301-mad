@@ -12,6 +12,9 @@ describe('CircuitsCardComponent', () => {
   let fixture: ComponentFixture<CircuitsCardComponent>;
   let service: CircuitsService;
   let httpController: HttpTestingController;
+  const mockService = {
+    queryCircuits: () => {},
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -30,9 +33,9 @@ describe('CircuitsCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should call the service', () => {
-  //   component.ngOnInit();
-  //   const circuits = spyOn(service, 'queryCircuits').and.callThrough();
-  //   expect(circuits).toHaveBeenCalled();
-  // });
+  it('should call the service', () => {
+    const circuits = spyOn(service, 'queryCircuits').and.callThrough();
+    component.ngOnInit();
+    expect(circuits).toHaveBeenCalled();
+  });
 });

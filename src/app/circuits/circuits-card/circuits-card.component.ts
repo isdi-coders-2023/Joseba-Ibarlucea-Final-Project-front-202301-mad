@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CircuitsService } from 'src/app/services/circuits/circuits.service';
-import { Circuit } from 'src/types/types';
 
 @Component({
   selector: 'app-circuits-card',

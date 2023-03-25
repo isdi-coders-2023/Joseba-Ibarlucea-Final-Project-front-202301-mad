@@ -15,7 +15,7 @@ describe('TeamDetailsComponent', () => {
     teams$: new BehaviorSubject([{ id: '' }]),
   };
   const mockRoute = {
-    params: of({ id: '456' }),
+    params: of({ id: '123' }),
   };
 
   beforeEach(async () => {
@@ -36,10 +36,10 @@ describe('TeamDetailsComponent', () => {
 
     fixture = TestBed.createComponent(TeamDetailsComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
