@@ -16,39 +16,33 @@ export type Token = {
   results: { token: string };
 };
 
-export type BestPosition = {
-  position: number;
-  times: number;
-};
-
 export type Team = {
   id: string;
   name: string;
   logo: string;
   championships: number;
-  bestPosition: BestPosition;
+  bestPosition: {
+    position: number;
+    times: number;
+  };
   poles: number;
   fastestLaps: number;
   chassis: string;
   engine: string;
 };
 
-export type CircuitLocation = {
-  country: string;
-  city: string;
-};
-
-export type CircuitRecord = {
-  time: string;
-  driver: string;
-  year: string;
-};
-
 export type Circuit = {
   id: string;
   race: string;
   image: string;
-  location: CircuitLocation;
+  location: {
+    country: string;
+    city: string;
+  };
   laps: number;
-  lapRecord: CircuitRecord;
+  lapRecord: {
+    time: string;
+    driver: string;
+    year: string;
+  };
 };
