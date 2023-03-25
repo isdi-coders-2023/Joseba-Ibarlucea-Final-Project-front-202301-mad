@@ -1,13 +1,27 @@
 @import "src/styles/globals.scss";
-.container {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  border: 1px solid black;
 
-  p {
-    font-family: $titillium;
-    font-weight: 600;
-    font-size: 1.3rem;
+.btns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  a {
+    width: 75%;
+    color: black;
+    text-decoration: none;
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-width: 2px 2px 0px 0px;
+    border-top-right-radius: 8px;
+
+    p {
+      font-family: $titillium;
+      font-weight: 600;
+      font-size: 2rem;
+    }
   }
 }
