@@ -57,3 +57,18 @@ export type Driver = {
   podiums: number;
   team: string;
 };
+
+export type Ranking = {
+  id: string;
+  position: number;
+  points: number;
+  wins: 15;
+  team: {
+    name: string;
+    id: string;
+  };
+  driver: {
+    name: string;
+    id: string;
+  };
+};
