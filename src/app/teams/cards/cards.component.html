@@ -1,15 +1,17 @@
-<h2>2022 Drivers</h2>
-<ul>
-  <li *ngFor="let item of srv.teams$ | async">
-    <a [routerLink]="item.id">
-      <div>
-        <p>
-          {{ item.name }}
-        </p>
-        <p>
-          {{ item.chassis }}
-        </p>
-      </div>
-    </a>
-  </li>
-</ul>
+<section class="container">
+  <h2>2022 Teams</h2>
+  <ul>
+    <li *ngFor="let item of srv.teams$ | async">
+      <a [routerLink]="item.id">
+        <div class="team-container">
+          <p>
+            {{ item.name }}
+          </p>
+          <p>
+            {{ item.chassis }}
+          </p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</section>
