@@ -1,1 +1,15 @@
+@import "src/styles/globals.scss";
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ul {
+    list-style: none;
+
+    .driver-container {
+      @include border-right;
+    }
+  }
+}

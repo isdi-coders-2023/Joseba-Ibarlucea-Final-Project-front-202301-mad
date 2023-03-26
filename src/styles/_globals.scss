@@ -5,5 +5,11 @@ $black: #000;
 $gray: #bababa;
 $white: #fffefe;
 
+@mixin border-right {
+  border: 1px solid black;
+  border-width: 2px 2px 0px 0px;
+  border-top-right-radius: 8px;
+}
+
 $titillium: "Titillium Web", "Roboto", "sans-serif";
 $orbitron: "Orbitron", "Roboto", "sans-serif";
