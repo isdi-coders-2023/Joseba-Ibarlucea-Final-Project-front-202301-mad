@@ -14,9 +14,7 @@
   .btns {
     display: flex;
     justify-content: center;
-    border: 1px solid black;
-    border-width: 2px 2px 0px 0px;
-    border-top-right-radius: 8px;
+    @include border-right;
 
     p {
       font-family: $titillium;
