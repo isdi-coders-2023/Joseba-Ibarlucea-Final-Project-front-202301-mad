@@ -55,7 +55,7 @@ describe('RegisterComponent', () => {
   describe('When the method registerUser is called with errors', () => {
     it('Should throw an error', () => {
       const registerError = spyOn(service, 'registerUser').and.returnValue(
-        throwError('Invalid credential')
+        throwError(() => 'Invalid credential')
       );
       const errorMessage = 'Invalid field';
 

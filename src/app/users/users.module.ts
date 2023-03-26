@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
-import { ErrorComponent } from '../commons/error/error.component';
 import { CommonsModule } from '../commons/commons.module';
 
 @NgModule({

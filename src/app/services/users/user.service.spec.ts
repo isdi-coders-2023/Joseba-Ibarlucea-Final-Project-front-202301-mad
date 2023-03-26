@@ -7,7 +7,6 @@ import {
 import { UserService } from './user.service';
 import { User } from 'src/types/types';
 import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
 
 describe('UserService', () => {
   let service: UserService;
