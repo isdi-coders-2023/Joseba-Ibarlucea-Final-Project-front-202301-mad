@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { Token, User } from 'src/types/types';
 
 @Injectable({
@@ -17,11 +17,18 @@ export class UserService {
   }
 
   registerUser(user: Partial<User>): Observable<{ user: User }> {
-    console.log(user);
-    return this.http.post(this.register, user) as Observable<{ user: User }>;
+    return this.http
+      .post<{ user: User }>(this.register, user)
+      .pipe(catchError(this.handleError));
   }
 
   logUser(user: Partial<User>): Observable<Token> {
-    return this.http.post(this.login, user) as Observable<Token>;
+    return this.http
+      .post<Token>(this.login, user)
+      .pipe(catchError(this.handleError));
+  }
+
+  handleError(error: HttpErrorResponse) {
+    return throwError(() => `${error.statusText}`);
   }
 }

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { catchError, EMPTY } from 'rxjs';
 import { UserService } from 'src/app/services/users/user.service';
 import { User } from 'src/types/types';
 
@@ -10,7 +12,13 @@ import { User } from 'src/types/types';
 })
 export class LoginComponent {
   login: FormGroup;
-  constructor(public formBuilder: FormBuilder, private srv: UserService) {
+  errorMessage: string = '';
+  constructor(
+    public formBuilder: FormBuilder,
+    public srv: UserService,
+    private router: Router,
+    private zone: NgZone
+  ) {
     this.login = formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -26,6 +34,19 @@ export class LoginComponent {
       email: this.login.value.email,
       password: this.login.value.password,
     };
-    this.srv.logUser(log).subscribe((x) => this.srv.token$.next(x));
+    this.srv
+      .logUser(log)
+      .pipe(
+        catchError(() => {
+          this.errorMessage = 'Error on login, check your credentials';
+          return EMPTY;
+        })
+      )
+      .subscribe((x) => {
+        this.srv.token$.next(x);
+        this.zone.run(() => {
+          this.router.navigateByUrl('/');
+        });
+      });
   }
 }

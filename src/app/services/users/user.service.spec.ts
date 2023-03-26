@@ -6,6 +6,7 @@ import {
 
 import { UserService } from './user.service';
 import { User } from 'src/types/types';
+import { HttpErrorResponse } from '@angular/common/http';
 
 describe('UserService', () => {
   let service: UserService;
@@ -19,6 +20,10 @@ describe('UserService', () => {
     email: 'pepe@test',
     password: pass,
   };
+
+  const mockError: HttpErrorResponse = {
+    statusText: 'test',
+  } as HttpErrorResponse;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -48,6 +53,16 @@ describe('UserService', () => {
         expect(JSON.stringify(resp)).toBe(JSON.stringify(user));
       });
       expect(httpTestingController).toBeTruthy();
+    });
+  });
+
+  describe('When the handleError method is called', () => {
+    it('Should return the error message', () => {
+      service.handleError(mockError).subscribe({
+        error: (error: HttpErrorResponse) => {
+          expect(mockError.statusText).toBe('test');
+        },
+      });
     });
   });
 });

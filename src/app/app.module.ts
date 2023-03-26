@@ -28,6 +28,7 @@ import { RankingsModule } from './rankings/rankings.module';
     CircuitsModule,
     DriversModule,
     RankingsModule,
+    CommonModule,
   ],
 
   providers: [],

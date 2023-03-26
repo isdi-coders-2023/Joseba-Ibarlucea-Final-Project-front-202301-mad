@@ -1,28 +1,44 @@
-<h2>Register</h2>
+<section class="register">
+  <h2>Register</h2>
 
-<form [formGroup]="register" (ngSubmit)="handleSubmit()">
+  <form [formGroup]="register" (ngSubmit)="handleSubmit()">
+    <div>
+      <input
+        type="text"
+        formControlName="email"
+        id="email"
+        placeholder="Email"
+      />
+    </div>
+    <div>
+      <input type="text" formControlName="name" id="name" placeholder="Name" />
+    </div>
+    <div>
+      <input
+        type="text"
+        formControlName="surname"
+        id="surname"
+        placeholder="Surname"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        formControlName="password"
+        id="password"
+        placeholder="Password"
+      />
+    </div>
+    <div>
+      <select formControlName="favoriteTeam">
+        <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
+      </select>
+    </div>
+    <button>Submit</button>
+  </form>
   <div>
-    <input type="text" formControlName="email" id="email" placeholder="Email" />
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
   </div>
-  <div>
-    <input type="text" formControlName="name" id="name" placeholder="Name" />
-  </div>
-  <div>
-    <input
-      type="text"
-      formControlName="surname"
-      id="surname"
-      placeholder="Surname"
-    />
-  </div>
-  <div>
-    <input
-      type="password"
-      formControlName="password"
-      id="password"
-      placeholder="Password"
-    />
-  </div>
-  <button>Submit</button>
-</form>
-<!-- {{ data$ | async }} -->
+
+  <app-error *ngIf="errorMessage" [message]="errorMessage"></app-error>
+</section>
