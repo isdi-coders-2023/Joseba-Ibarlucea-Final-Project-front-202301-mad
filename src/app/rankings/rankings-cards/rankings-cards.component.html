@@ -1,9 +1,11 @@
-<p>rankings-cards works!</p>
+<section class="container">
+  <h2>2022 Ranking</h2>
 
-<ul>
-  <li *ngFor="let item of srv.ranking$ | async">
-    <div>
-      <p>{{ item.points }}</p>
-    </div>
-  </li>
-</ul>
+  <ul>
+    <li *ngFor="let item of srv.ranking$ | async">
+      <div class="driver-container">
+        <p>{{ item.points }}</p>
+      </div>
+    </li>
+  </ul>
+</section>
