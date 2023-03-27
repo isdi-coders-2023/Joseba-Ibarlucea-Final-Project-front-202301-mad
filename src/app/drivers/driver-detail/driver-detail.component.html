@@ -3,4 +3,11 @@
 <div>
   <p>{{ driver.name }}</p>
   <p>{{ driver.racingNumber }}</p>
+  <p>
+    {{ driver.id }}
+  </p>
 </div>
+
+<button *ngIf="info.role === 'Team Manager'" [routerLink]="path">
+  Update Driver
+</button>
