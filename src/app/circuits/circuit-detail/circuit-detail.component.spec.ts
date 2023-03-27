@@ -13,6 +13,21 @@ describe('CircuitDetailComponent', () => {
   const mockCircuitService = {
     queryCircuit: () => {},
     circuits$: new BehaviorSubject([{ id: '' }]),
+    circuit: {
+      id: '',
+      race: '',
+      image: '',
+      location: {
+        country: '',
+        city: '',
+      },
+      laps: 0,
+      lapRecord: {
+        time: '',
+        driver: '',
+        year: '',
+      },
+    },
   };
 
   const mockRoute = {
