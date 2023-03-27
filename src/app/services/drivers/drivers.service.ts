@@ -37,10 +37,6 @@ export class DriversService {
       .pipe(catchError(this.handleError));
   }
 
-  handleError(error: HttpErrorResponse) {
-    return throwError(() => `${error.status}`);
-  }
-
   updateDriver(driver: Partial<Driver>): Observable<Partial<Driver>> {
     return this.http
       .patch(`${this.update + driver.id}`, driver)
@@ -51,5 +47,9 @@ export class DriversService {
     return this.http
       .get(`${this.findId + id}`)
       .pipe(catchError(this.handleError));
+  }
+
+  handleError(error: HttpErrorResponse) {
+    return throwError(() => `${error.status}`);
   }
 }
