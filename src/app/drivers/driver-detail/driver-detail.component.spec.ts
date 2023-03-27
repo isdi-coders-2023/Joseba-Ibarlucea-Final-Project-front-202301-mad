@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { BehaviorSubject, of } from 'rxjs';
 import { DriversService } from 'src/app/services/drivers/drivers.service';
 import { DriverDetailComponent } from './driver-detail.component';
@@ -9,6 +10,10 @@ describe('DriverDetailComponent', () => {
   let fixture: ComponentFixture<DriverDetailComponent>;
   const mockDriversService = {
     drivers$: new BehaviorSubject([{ id: '' }]),
+    token: {
+      token: 'some',
+      role: 'Team Manager',
+    },
   };
   const mockRoute = {
     params: of({ id: '123' }),
@@ -21,6 +26,7 @@ describe('DriverDetailComponent', () => {
         { provide: DriversService, useValue: mockDriversService },
         { provide: ActivatedRoute, useValue: mockRoute },
       ],
+      imports: [RouterTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DriverDetailComponent);
