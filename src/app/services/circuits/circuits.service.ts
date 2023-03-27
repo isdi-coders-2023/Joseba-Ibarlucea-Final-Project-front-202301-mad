@@ -9,8 +9,9 @@ import { UserService } from '../users/user.service';
 })
 export class CircuitsService {
   private query = 'http://localhost:4321/circuits';
-
   circuits$: BehaviorSubject<Circuit[]>;
+
+  token = {};
 
   constructor(private http: HttpClient, private user: UserService) {
     const initialCircuit: Circuit[] = [];
@@ -18,7 +19,7 @@ export class CircuitsService {
   }
 
   queryCircuits(): Observable<Circuit[]> {
-    this.user.token$;
+    this.user.token$.subscribe((t) => (this.token = t.results));
     return this.http.get<{ results: Array<Circuit> }>(this.query).pipe(
       map((c) => {
         this.circuits$.next(c.results);
