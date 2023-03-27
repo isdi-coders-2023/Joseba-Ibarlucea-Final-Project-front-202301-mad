@@ -19,6 +19,7 @@ describe('Given the LoginComponent', () => {
   const mockResp = {
     results: {
       token: '',
+      role: '',
     },
   };
 
