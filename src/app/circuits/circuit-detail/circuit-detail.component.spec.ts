@@ -25,7 +25,7 @@ describe('CircuitDetailComponent', () => {
       lapRecord: {
         time: '',
         driver: '',
-        year: '',
+        year: '12',
       },
     },
   };
@@ -61,7 +61,14 @@ describe('CircuitDetailComponent', () => {
 
   it('Should bring the circuits when ngOnInit is called', () => {
     mockCircuitService.circuits$ = new BehaviorSubject([
-      { id: '123' },
+      {
+        id: '123',
+        lapRecord: {
+          time: '',
+          driver: '',
+          year: '12',
+        },
+      },
       { id: '456' },
     ]);
     component.ngOnInit();
