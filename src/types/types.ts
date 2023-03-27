@@ -15,8 +15,10 @@ export type User = {
 };
 
 export type Token = {
-  results: { token: string };
+  results: { token: string; role: string };
 };
+
+export type TokenRole = { token: string; role: string };
 
 export type Team = {
   id: string;
