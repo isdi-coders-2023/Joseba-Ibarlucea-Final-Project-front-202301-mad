@@ -17,8 +17,9 @@
     @include border-right;
 
     p {
-      font-family: $titillium;
-      font-weight: 600;
+      font-family: $orbitron;
+      font-weight: 800;
+      color: $black;
       font-size: 2rem;
     }
   }

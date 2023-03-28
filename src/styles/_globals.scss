@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700&display=swap");
-
 $f1-red: #e00700;
 $black: #000;
 $gray: #bababa;
@@ -11,5 +9,11 @@ $white: #fffefe;
   border-top-right-radius: 8px;
 }
 
-$titillium: "Titillium Web", "Roboto", "sans-serif";
-$orbitron: "Orbitron", "Roboto", "sans-serif";
+@mixin border-right-menu {
+  border: 1px solid $white;
+  border-width: 0px 2px 2px 0px;
+  border-bottom-right-radius: 8px;
+}
+
+$titillium: "Titillium Web", sans-serif;
+$orbitron: "Orbitron", sans-serif;

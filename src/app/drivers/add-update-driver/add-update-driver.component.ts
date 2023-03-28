@@ -106,7 +106,7 @@ export class AddUpdateDriverComponent {
         })
       )
       .subscribe(() => {
-        this.router.navigateByUrl('/home');
+        this.router.navigate(['drivers']);
       });
   }
   selectMethod() {

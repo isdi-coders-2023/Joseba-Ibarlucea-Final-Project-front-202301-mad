@@ -1,3 +1,4 @@
+@import "src/styles/globals.scss";
 h1 {
   font-family: "Titillium Web";
 }
@@ -5,5 +6,6 @@ h1 {
 header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: $f1-red;
 }

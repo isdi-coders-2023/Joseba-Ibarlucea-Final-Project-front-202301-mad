@@ -11,3 +11,7 @@
 <button *ngIf="info.role === 'Team Manager'" [routerLink]="path">
   Update Driver
 </button>
+
+<button *ngIf="info.role === 'Team Manager'" (click)="deleteDriver()">
+  Delete Driver
+</button>

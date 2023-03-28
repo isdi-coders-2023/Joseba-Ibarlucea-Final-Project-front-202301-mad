@@ -49,6 +49,13 @@ export class DriversService {
       .pipe(catchError(this.handleError));
   }
 
+  deleteDriver(id: string) {
+    console.log(id);
+    return this.http
+      .delete(`${this.findId + id}`)
+      .pipe(catchError(this.handleError));
+  }
+
   handleError(error: HttpErrorResponse) {
     return throwError(() => `${error.status}`);
   }

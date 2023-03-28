@@ -5,12 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { DriversService } from 'src/app/services/drivers/drivers.service';
+import { Driver } from 'src/types/types';
 
 import { AddUpdateDriverComponent } from './add-update-driver.component';
 
 describe('AddUpdateDriverComponent', () => {
   let component: AddUpdateDriverComponent;
   let fixture: ComponentFixture<AddUpdateDriverComponent>;
+  let driversService: jasmine.SpyObj<DriversService>;
 
   const mockRoute = {
     params: of({ id: '1324' }),
@@ -34,6 +36,10 @@ describe('AddUpdateDriverComponent', () => {
       ],
     }).compileComponents();
 
+    driversService = TestBed.inject(
+      DriversService
+    ) as jasmine.SpyObj<DriversService>;
+
     fixture = TestBed.createComponent(AddUpdateDriverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -44,6 +50,35 @@ describe('AddUpdateDriverComponent', () => {
   });
 
   describe('Given the addDriver method', () => {
-    it('Should take the form values and create a new driver', () => {});
+    it('Should take the form values and create a new driver', () => {
+      const newDriver: Partial<Driver> = {
+        name: 'Fabio',
+        nationality: 'Italian',
+        racingNumber: 0,
+        championships: 1,
+        podiums: 13,
+        team: 'Scuderia Ferrari',
+        image: 'some',
+      };
+
+      const add = spyOn(component, 'addDriver').and.returnValue();
+
+      // driversService.addDriver(newDriver).subscribe((res) => {
+      //   expect(res).toEqual(newDriver);
+      // });
+
+      expect(add).toHaveBeenCalled();
+      expect(driversService.addDriver).toHaveBeenCalled();
+    });
+  });
+
+  describe("When there's and id in the params", () => {
+    it('Should call the loadDriver on init', () => {
+      component.id = '123';
+      const load = spyOn(component, 'loadDriver').and.callThrough();
+      component.ngOnInit();
+
+      expect(load).toHaveBeenCalled();
+    });
   });
 });
