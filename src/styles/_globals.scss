@@ -9,6 +9,12 @@ $white: #fffefe;
   border-top-right-radius: 8px;
 }
 
+@mixin border-right-bottom {
+  border: 1px solid black;
+  border-width: 0px 2px 2px 0px;
+  border-bottom-right-radius: 8px;
+}
+
 @mixin border-right-menu {
   border: 1px solid $white;
   border-width: 0px 2px 2px 0px;

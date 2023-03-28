@@ -1,1 +1,66 @@
+@import "src/styles/globals.scss";
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-family: $titillium;
+  width: 90%;
+  margin: 2rem auto;
+}
 
+.logo-container {
+  width: 100%;
+
+  .team-logo {
+    width: 100%;
+  }
+}
+
+.info-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .team-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .position-container {
+    text-align: right;
+  }
+}
+
+p {
+  color: $gray;
+}
+
+.team-drivers {
+  display: flex;
+  justify-content: space-evenly;
+  .driver-container {
+    width: 40%;
+
+    .image-container {
+      width: 90%;
+
+      .driver-image {
+        width: 100%;
+      }
+    }
+
+    .driver-number {
+      font-family: $orbitron;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+    p {
+      color: black;
+      font-size: 1.2rem;
+      word-spacing: 3rem;
+    }
+  }
+}

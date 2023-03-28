@@ -33,6 +33,9 @@ export type Team = {
   fastestLaps: number;
   chassis: string;
   engine: string;
+  car: string;
+  driver1: Partial<Driver>;
+  driver2: Partial<Driver>;
 };
 
 export type Circuit = {

@@ -4,12 +4,29 @@
     <li *ngFor="let item of srv.teams$ | async">
       <a [routerLink]="item.id">
         <div class="team-container">
-          <p>
-            {{ item.name }}
-          </p>
-          <p>
-            {{ item.chassis }}
-          </p>
+          <div class="team-info">
+            <h3 class="team-name">
+              {{ item.name }}
+            </h3>
+            <div class="logo-container">
+              <img [src]="item.logo" alt="" class="team-logo" />
+            </div>
+          </div>
+
+          <div class="team-drivers">
+            <span class="driver-name">
+              <h3>{{ item.driver1.name }}</h3>
+            </span>
+            <span class="driver-name">
+              <h3>
+                {{ item.driver2.name }}
+              </h3>
+            </span>
+          </div>
+
+          <div class="car-container">
+            <img [src]="item.car" [alt]="item.name + ' car'" class="team-car" />
+          </div>
         </div>
       </a>
     </li>
