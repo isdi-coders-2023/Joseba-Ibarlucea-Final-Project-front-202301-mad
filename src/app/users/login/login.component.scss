@@ -1,4 +1,62 @@
 @import "src/styles/globals.scss";
-h2 {
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+  justify-content: center;
+  font-family: $orbitron;
+
+  h2 {
+    font-family: $orbitron;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    input {
+      border: none;
+      border-bottom: 1px solid black;
+      text-align: center;
+      font-size: 1.2rem;
+      font-family: $orbitron;
+    }
+    ::placeholder {
+      text-align: center;
+      font-size: 1rem;
+      font-family: $orbitron;
+    }
+  }
+}
+
+button {
+  width: fit-content;
+  padding: 6px;
+  background-color: $gray;
+  color: white;
+  border: transparent;
+  border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-link {
   font-family: $titillium;
+  font-size: 1.3rem;
+  a {
+    color: black;
+  }
 }

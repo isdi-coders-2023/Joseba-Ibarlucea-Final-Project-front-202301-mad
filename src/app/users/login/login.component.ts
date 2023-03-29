@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,7 +27,7 @@ export class LoginComponent {
   }
 
   async ngOnInit(): Promise<void> {
-    this.srv.token$.subscribe((x) => console.log(x.results.token));
+    this.srv.token$.subscribe((x) => console.log(x));
   }
 
   handleSubmit() {
@@ -38,12 +39,14 @@ export class LoginComponent {
       .logUser(log)
       .pipe(
         catchError(() => {
+          // console.log(error);
           this.errorMessage = 'Error on login, check your credentials';
           return EMPTY;
         })
       )
       .subscribe((x) => {
         this.srv.token$.next(x);
+        localStorage.setItem('token', JSON.stringify(x));
         this.zone.run(() => {
           this.router.navigateByUrl('/');
         });

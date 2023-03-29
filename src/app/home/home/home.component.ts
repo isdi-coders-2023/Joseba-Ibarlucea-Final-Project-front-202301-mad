@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/users/user.service';
 import { MenuItems } from 'src/types/types';
 
 @Component({
@@ -8,13 +9,16 @@ import { MenuItems } from 'src/types/types';
 })
 export class HomeComponent {
   labels: MenuItems[];
-  constructor() {
+  constructor(private user: UserService) {
     this.labels = [
       { label: 'Teams', path: 'teams' },
       { label: 'Drivers', path: 'drivers' },
       { label: 'Circuits', path: 'circuits' },
       { label: 'Rankings', path: 'rankings' },
     ];
-    console.log(this.labels);
+  }
+
+  ngOnInit(): void {
+    this.user.getToken();
   }
 }

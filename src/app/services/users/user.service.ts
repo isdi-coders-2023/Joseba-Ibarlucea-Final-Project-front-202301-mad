@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import { initialToken } from 'src/initial.values/values';
 import { Token, User } from 'src/types/types';
 
 @Injectable({
@@ -12,7 +13,6 @@ export class UserService {
   token$: BehaviorSubject<Token>;
 
   constructor(private http: HttpClient) {
-    const initialToken = { results: { token: '' } };
     this.token$ = new BehaviorSubject(initialToken);
   }
 
@@ -22,13 +22,24 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
-  logUser(user: Partial<User>): Observable<Token> {
+  logUser(user: Partial<User>) {
     return this.http
       .post<Token>(this.login, user)
       .pipe(catchError(this.handleError));
   }
 
+  getToken() {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+    this.token$.next(JSON.parse(token));
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    this.token$.next(initialToken);
+  }
+
   handleError(error: HttpErrorResponse) {
-    return throwError(() => `${error.statusText}`);
+    return throwError(() => `${error.error}`);
   }
 }

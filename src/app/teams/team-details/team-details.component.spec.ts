@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TeamService } from 'src/app/services/teams/team.service';
 import { TeamDetailsComponent } from './team-details.component';
 import { BehaviorSubject, of } from 'rxjs';
+import { Team } from 'src/types/types';
 
 describe('TeamDetailsComponent', () => {
   let component: TeamDetailsComponent;
@@ -12,10 +13,26 @@ describe('TeamDetailsComponent', () => {
 
   const mockTeamService = {
     queryTeams: () => {},
-    teams$: new BehaviorSubject([{ id: '' }]),
+    teams$: new BehaviorSubject([
+      {
+        id: '',
+        bestPosition: {
+          position: 1,
+          times: 2,
+        },
+        driver1: {
+          image: '',
+        },
+        driver2: {
+          image: '',
+        },
+      },
+    ]),
   };
   const mockRoute = {
-    params: of({ id: '123' }),
+    params: of({
+      id: '123',
+    }),
   };
 
   beforeEach(async () => {
@@ -44,11 +61,37 @@ describe('TeamDetailsComponent', () => {
   });
 
   it('should bring the new teams calling ngOnInit', () => {
-    mockTeamService.teams$ = new BehaviorSubject([
-      { id: '123' },
-      { id: '456' },
+    mockTeamService.teams$.next([
+      {
+        id: '123',
+        bestPosition: {
+          position: 1,
+          times: 2,
+        },
+        driver1: {
+          image: 'image2',
+        },
+        driver2: {
+          image: '',
+        },
+      },
+      {
+        id: '456',
+        bestPosition: {
+          position: 2,
+          times: 3,
+        },
+        driver1: {
+          image: 'test',
+        },
+        driver2: {
+          image: 'mocky',
+        },
+      },
     ]);
+
     component.ngOnInit();
+
     expect(mockTeamService.teams$).toBeTruthy();
   });
 });

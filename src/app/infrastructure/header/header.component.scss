@@ -1,9 +1,17 @@
+@import "src/styles/globals.scss";
 h1 {
-  font-family: "Titillium Web";
+  font-family: $orbitron;
+  color: white;
+  font-weight: 500;
 }
 
 header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: $f1-red;
+}
+
+.user-btn {
+  margin-right: 1rem;
 }

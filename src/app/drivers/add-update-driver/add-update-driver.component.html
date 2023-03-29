@@ -1,0 +1,54 @@
+<section class="add-update">
+  <div class="container">
+    <h2>{{ title }}</h2>
+
+    <form [formGroup]="driver" (ngSubmit)="selectMethod()">
+      <div>
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          placeholder="Name"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          formControlName="nationality"
+          id="nationality"
+          placeholder="Nationality"
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          formControlName="racingNumber"
+          id="racingNumber"
+          placeholder="Racing Number"
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          formControlName="championships"
+          id="championships"
+          placeholder="Championships"
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          formControlName="podiums"
+          id="podiums"
+          placeholder="Podiums"
+        />
+      </div>
+      <div>
+        <select formControlName="team">
+          <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
+        </select>
+      </div>
+      <button>Submit</button>
+    </form>
+  </div>
+</section>

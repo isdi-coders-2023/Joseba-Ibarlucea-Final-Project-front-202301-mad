@@ -1,0 +1,25 @@
+@import "src/styles/globals.scss";
+
+.contact,
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60vh;
+  font-family: $orbitron;
+}
+h2 {
+  font-size: 2.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 1.5rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+
+  span {
+    font-weight: bold;
+  }
+}

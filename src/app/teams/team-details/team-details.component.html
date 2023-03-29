@@ -1,6 +1,70 @@
-<p>team-details works!</p>
+<section class="container">
+  <div class="logo-container">
+    <img [src]="team.logo" [alt]="team.name + ' logo'" class="team-logo" />
+  </div>
 
-<div>
-  <p>{{ team.name }}</p>
-  <p>{{ team.championships }}</p>
-</div>
+  <div class="info-container">
+    <div class="team-info">
+      <h3 class="information">Team</h3>
+      <p>
+        {{ team.name }}
+      </p>
+    </div>
+    <div class="team-info">
+      <h3 class="information">Championships</h3>
+      <p>
+        {{ team.championships }}
+      </p>
+    </div>
+    <div class="team-info">
+      <h3 class="information">Best Position</h3>
+      <div class="position-container">
+        <p>Position: {{ team.bestPosition.position }}</p>
+        <p>Times: {{ team.bestPosition.times }}</p>
+      </div>
+    </div>
+    <div class="team-info">
+      <h3 class="information">Poles Position</h3>
+      <p>
+        {{ team.poles }}
+      </p>
+    </div>
+    <div class="team-info">
+      <h3 class="information">Chassis</h3>
+      <p>
+        {{ team.chassis }}
+      </p>
+    </div>
+    <div class="team-info">
+      <h3 class="information">Engine</h3>
+      <p>
+        {{ team.engine }}
+      </p>
+    </div>
+  </div>
+
+  <div class="team-drivers">
+    <div class="driver-container">
+      <div class="image-container">
+        <img [src]="team.driver1.image" alt="" class="driver-image" />
+      </div>
+      <p class="driver-number">
+        {{ team.driver1.racingNumber }}
+      </p>
+      <p>
+        {{ team.driver1.name }}
+      </p>
+    </div>
+    <div class="driver-container">
+      <div class="image-container">
+        <img [src]="team.driver2.image" alt="" class="driver-image" />
+      </div>
+      <p class="driver-number">
+        {{ team.driver2.racingNumber }}
+      </p>
+      <p>
+        {{ team.driver2.name }}
+      </p>
+    </div>
+  </div>
+</section>

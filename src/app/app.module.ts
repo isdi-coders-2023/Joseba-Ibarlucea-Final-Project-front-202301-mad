@@ -12,6 +12,7 @@ import { HomeModule } from './home/home.module';
 import { CircuitsModule } from './circuits/circuits.module';
 import { DriversModule } from './drivers/drivers.module';
 import { RankingsModule } from './rankings/rankings.module';
+import { StaticsModule } from './statics/statics.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { RankingsModule } from './rankings/rankings.module';
     DriversModule,
     RankingsModule,
     CommonModule,
+    StaticsModule,
   ],
 
   providers: [],

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, EMPTY } from 'rxjs';
 import { UserService } from 'src/app/services/users/user.service';
+import { teams } from 'src/initial.values/values';
 import { User } from 'src/types/types';
 
 @Component({
@@ -12,7 +13,7 @@ import { User } from 'src/types/types';
 })
 export class RegisterComponent {
   errorMessage: string = '';
-  public teams: Array<string> = ['Scuderia Ferrari', 'Red Bull'];
+  public teams: Array<string> = teams;
   register: FormGroup;
   constructor(
     public formBuilder: FormBuilder,

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DriversService } from 'src/app/services/drivers/drivers.service';
-import { Driver } from 'src/types/types';
+import { initialParam, initialTokenRole } from 'src/initial.values/values';
+import { Driver, TokenRole } from 'src/types/types';
 
 @Component({
   selector: 'app-driver-detail',
@@ -11,15 +12,21 @@ import { Driver } from 'src/types/types';
 export class DriverDetailComponent {
   drivers: Driver[] = [];
   driver: Driver = {} as Driver;
-  params: Params = { id: '' };
-
-  constructor(public srv: DriversService, private route: ActivatedRoute) {}
+  params: Params = initialParam;
+  path = ``;
+  info: TokenRole = initialTokenRole;
+  constructor(
+    public srv: DriversService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((p) => (this.params = p));
     this.srv.drivers$.subscribe((d) => (this.drivers = d));
-
+    this.info = this.srv.token;
     this.findDriver();
+    this.path = `/drivers/update/${this.driver.id}`;
   }
 
   findDriver() {
@@ -28,5 +35,10 @@ export class DriverDetailComponent {
     );
     if (!found) return;
     this.driver = found;
+  }
+
+  deleteDriver() {
+    this.srv.deleteDriver(this.driver.id).subscribe();
+    // this.router.navigateByUrl('/drivers');
   }
 }

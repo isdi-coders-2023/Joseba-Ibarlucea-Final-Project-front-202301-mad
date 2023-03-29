@@ -1,26 +1,28 @@
 <section class="login">
-  <h2>Login</h2>
-  <form [formGroup]="login" (ngSubmit)="handleSubmit()">
-    <div>
-      <input
-        type="text"
-        formControlName="email"
-        id="email"
-        placeholder="Email"
-      />
+  <div class="container">
+    <h2>Login</h2>
+    <form [formGroup]="login" (ngSubmit)="handleSubmit()">
+      <div>
+        <input
+          type="text"
+          formControlName="email"
+          id="email"
+          placeholder="Email"
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+          placeholder="Password"
+        />
+      </div>
+      <button>Submit</button>
+    </form>
+    <div class="register-link">
+      <p>Don't have an account? <a routerLink="/register">Register</a></p>
     </div>
-    <div>
-      <input
-        type="password"
-        formControlName="password"
-        id="password"
-        placeholder="Password"
-      />
-    </div>
-    <button>Submit</button>
-  </form>
-  <div>
-    <p>Don't have an account? <a routerLink="/register">Register</a></p>
+    <app-error *ngIf="errorMessage" [message]="errorMessage"></app-error>
   </div>
-  <app-error *ngIf="errorMessage" [message]="errorMessage"></app-error>
 </section>

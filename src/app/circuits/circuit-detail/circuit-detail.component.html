@@ -1,4 +1,43 @@
-<div>
-  <p>{{ circuit.race }}</p>
-  <p>{{ circuit.lapRecord.year }}</p>
-</div>
+<section class="container">
+  <div class="circuit-name">
+    <h2>
+      {{ circuit.race }}
+    </h2>
+  </div>
+  <div class="circuit-image">
+    <img [src]="circuit.image" alt="" />
+  </div>
+
+  <div class="info-container">
+    <div class="circuit-info">
+      <h3>Country</h3>
+      <p>
+        {{ circuit.location.country }}
+      </p>
+    </div>
+    <div class="circuit-info">
+      <h3>City</h3>
+      <p>
+        {{ circuit.location.city }}
+      </p>
+    </div>
+    <div class="circuit-info">
+      <h3>Laps</h3>
+      <p>
+        {{ circuit.laps }}
+      </p>
+    </div>
+    <div class="circuit-info">
+      <h3>Lap Record:</h3>
+    </div>
+    <div class="circuit-info">
+      <h3>
+        {{ circuit.lapRecord.driver }}
+      </h3>
+      <div class="lap-info">
+        <p>Time: {{ circuit.lapRecord.time }}</p>
+        <p>Year: {{ circuit.lapRecord.year }}</p>
+      </div>
+    </div>
+  </div>
+</section>

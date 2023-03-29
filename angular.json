@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles/_globals.scss", "src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -81,7 +81,7 @@
             "inlineStyleLanguage": "scss",
             "codeCoverage": true,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles/_globals.scss", "src/styles.scss"],
             "scripts": []
           }
         }

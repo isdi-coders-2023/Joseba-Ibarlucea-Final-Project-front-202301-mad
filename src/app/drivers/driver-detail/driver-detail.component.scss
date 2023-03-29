@@ -1,1 +1,71 @@
+@import "src/styles/globals.scss";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  color: black;
+  font-family: $titillium;
+  margin: 1.5rem auto;
 
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+
+      color: black;
+    }
+  }
+}
+
+.number-name {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  border-bottom: 1px solid $gray;
+  .number {
+    font-family: $orbitron;
+    font-weight: 700;
+    font-size: 1.7rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+
+.info-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .driver-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.btns {
+  display: flex;
+  gap: 1.5rem;
+
+  button {
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    border: transparent;
+    background-color: #4a4a4a;
+  }
+
+  .delete-btn {
+    background-color: $f1-red;
+    color: white;
+  }
+}

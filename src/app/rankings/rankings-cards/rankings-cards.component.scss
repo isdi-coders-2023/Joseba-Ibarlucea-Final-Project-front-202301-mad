@@ -4,12 +4,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: $titillium;
+
+  h2 {
+    font-family: $titillium;
+    text-decoration: underline $f1-red;
+    text-underline-offset: 0.4rem;
+    font-size: 2rem;
+  }
 
   ul {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     list-style: none;
-
+    padding: 0;
+    width: 80%;
+    margin-bottom: 3.5rem;
     .driver-container {
       @include border-right;
+    }
+  }
+}
+
+.ranking-container {
+  @include border-right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .ranking-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid $gray;
+
+    .ranking-points,
+    .ranking-position {
+      font-family: $orbitron;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .ranking-position {
+      font-size: 2rem;
     }
   }
 }

@@ -10,9 +10,10 @@ export class MenuComponent {
   constructor() {
     this.btns = [
       { path: '', label: 'Home' },
-      { path: 'register', label: 'Register' },
-      { path: 'login', label: 'Login' },
+      { path: 'drivers', label: 'Drivers' },
+      { path: 'circuits', label: 'Circuits' },
       { path: 'teams', label: 'Teams' },
+      { path: 'rankings', label: 'Rankings' },
     ];
   }
 }

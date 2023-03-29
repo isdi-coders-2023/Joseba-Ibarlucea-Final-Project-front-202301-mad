@@ -2,9 +2,24 @@
   <h2>2022 Ranking</h2>
 
   <ul>
-    <li *ngFor="let item of srv.ranking$ | async">
-      <div class="driver-container">
-        <p>{{ item.points }}</p>
+    <li *ngFor="let ranking of srv.ranking$ | async">
+      <div class="ranking-container">
+        <div class="ranking-info">
+          <h3 class="ranking-position">
+            {{ ranking.position }}
+          </h3>
+          <p class="ranking-points">{{ ranking.points }}PTS</p>
+        </div>
+        <div class="ranking-info">
+          <h3>{{ ranking.driver.name }}</h3>
+          <p class="ranking-number">
+            Wins:
+            {{ ranking.wins }}
+          </p>
+        </div>
+        <div class="ranking-image">
+          <img [src]="ranking.driver.image" alt="" />
+        </div>
       </div>
     </li>
   </ul>

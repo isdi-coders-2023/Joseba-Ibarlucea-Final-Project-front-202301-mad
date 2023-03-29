@@ -65,4 +65,35 @@ describe('UserService', () => {
       });
     });
   });
+
+  describe("When there's a token set", () => {
+    it('Should get the token', () => {
+      const token = 'tokenazo';
+      const getLocal = spyOn(localStorage, 'getItem').and.returnValue(
+        JSON.stringify(token)
+      );
+      service.getToken();
+
+      expect(getLocal).toHaveBeenCalled();
+    });
+  });
+
+  describe('When the logout method is called', () => {
+    it('Should call the local storage and remove the token', () => {
+      const removeLocal = spyOn(localStorage, 'removeItem').and.callThrough();
+      service.logOut();
+
+      expect(removeLocal).toHaveBeenCalled();
+    });
+  });
+
+  describe("When there's no token set", () => {
+    it('Should return void', () => {
+      const getLocal = spyOn(localStorage, 'getItem').and.returnValue(null);
+
+      service.getToken();
+
+      expect(getLocal).toHaveBeenCalled();
+    });
+  });
 });
