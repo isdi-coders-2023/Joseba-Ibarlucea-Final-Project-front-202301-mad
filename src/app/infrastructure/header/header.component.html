@@ -1,5 +1,8 @@
 <header>
   <ng-content></ng-content>
   <h1>Fnat1c</h1>
-  <button></button>
+  <button routerLink="login" *ngIf="!logged.results.token">Login</button>
+  <button *ngIf="logged.results.token" (click)="this.user.logOut()">
+    Logout
+  </button>
 </header>

@@ -25,7 +25,6 @@ export class TeamService {
 
   public queryTeams(): Observable<Team[]> {
     this.user.token$.subscribe((t) => (this.token = t.results.token));
-    console.log(this.token);
     return this.http.get<{ results: Array<Team[]> }>(this.query).pipe(
       map((t) => {
         this._teams$.next(t.results[0]);

@@ -16,7 +16,6 @@ export class HomeComponent {
       { label: 'Circuits', path: 'circuits' },
       { label: 'Rankings', path: 'rankings' },
     ];
-    console.log(this.labels);
   }
 
   ngOnInit(): void {

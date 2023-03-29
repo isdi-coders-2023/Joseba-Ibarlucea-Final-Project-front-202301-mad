@@ -12,10 +12,20 @@ describe('TeamDetailsComponent', () => {
 
   const mockTeamService = {
     queryTeams: () => {},
-    teams$: new BehaviorSubject([{ id: '' }]),
+    teams$: new BehaviorSubject([
+      {
+        id: '',
+        bestPosition: {
+          position: 1,
+          times: 2,
+        },
+      },
+    ]),
   };
   const mockRoute = {
-    params: of({ id: '123' }),
+    params: of({
+      id: '123',
+    }),
   };
 
   beforeEach(async () => {
@@ -45,8 +55,20 @@ describe('TeamDetailsComponent', () => {
 
   it('should bring the new teams calling ngOnInit', () => {
     mockTeamService.teams$ = new BehaviorSubject([
-      { id: '123' },
-      { id: '456' },
+      {
+        id: '123',
+        bestPosition: {
+          position: 1,
+          times: 2,
+        },
+      },
+      {
+        id: '456',
+        bestPosition: {
+          position: 1,
+          times: 2,
+        },
+      },
     ]);
     component.ngOnInit();
     expect(mockTeamService.teams$).toBeTruthy();

@@ -34,6 +34,11 @@ export class UserService {
     this.token$.next(JSON.parse(token));
   }
 
+  logOut() {
+    localStorage.removeItem('token');
+    this.token$.next(initialToken);
+  }
+
   handleError(error: HttpErrorResponse) {
     return throwError(() => `${error.error}`);
   }
