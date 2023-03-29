@@ -76,6 +76,7 @@ export type Ranking = {
   };
   driver: {
     name: string;
+    image: string;
     id: string;
   };
 };

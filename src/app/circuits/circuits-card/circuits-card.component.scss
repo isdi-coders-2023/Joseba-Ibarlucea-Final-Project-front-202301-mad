@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: $titillium;
 
   h2 {
     text-decoration: underline $f1-red;
@@ -11,13 +12,44 @@
 
   ul {
     list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 
     a {
       text-decoration: none;
+      color: black;
 
       .circuit-container {
         @include border-right;
       }
     }
   }
+}
+
+.race-location {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: 800;
+  border-bottom: 1px solid $gray;
+  font-size: 1.2rem;
+
+  .city {
+    color: $gray;
+    font-weight: 500;
+  }
+}
+
+.race-name {
+  font-weight: 800;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.race-image {
+  display: flex;
+  justify-content: center;
 }

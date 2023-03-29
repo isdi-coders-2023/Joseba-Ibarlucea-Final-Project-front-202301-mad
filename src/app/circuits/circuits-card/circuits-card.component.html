@@ -2,11 +2,21 @@
   <h2>2022 Circuits</h2>
 
   <ul>
-    <li *ngFor="let item of srv.circuits$ | async">
-      <a [routerLink]="item.id">
+    <li *ngFor="let circuit of srv.circuits$ | async">
+      <a [routerLink]="circuit.id">
         <div class="circuit-container">
-          <p>{{ item.race }}</p>
-          <p>{{ item.location.city }}</p>
+          <div class="race-location">
+            <p>
+              {{ circuit.location.country }}
+            </p>
+            <p class="city">{{ circuit.location.city }}</p>
+          </div>
+          <div class="race-name">
+            <p>{{ circuit.race }}</p>
+          </div>
+          <div class="race-image">
+            <img [src]="circuit.image" alt="" />
+          </div>
         </div>
       </a>
     </li>
