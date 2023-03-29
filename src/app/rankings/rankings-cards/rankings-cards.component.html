@@ -5,12 +5,10 @@
     <li *ngFor="let ranking of srv.ranking$ | async">
       <div class="ranking-container">
         <div class="ranking-info">
-          <h3 class="ranking-name">
+          <h3 class="ranking-position">
             {{ ranking.position }}
           </h3>
-          <p>
-            {{ ranking.points }}
-          </p>
+          <p class="ranking-points">{{ ranking.points }}PTS</p>
         </div>
         <div class="ranking-info">
           <h3>{{ ranking.driver.name }}</h3>

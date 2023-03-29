@@ -4,12 +4,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: $titillium;
 
   ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     list-style: none;
-
+    padding: 0;
+    width: 80%;
     .driver-container {
       @include border-right;
+    }
+  }
+}
+
+.ranking-container {
+  @include border-right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .ranking-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid $gray;
+
+    .ranking-points,
+    .ranking-position {
+      font-family: $orbitron;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .ranking-position {
+      font-size: 2rem;
     }
   }
 }
