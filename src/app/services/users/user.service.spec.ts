@@ -78,6 +78,15 @@ describe('UserService', () => {
     });
   });
 
+  describe('When the logout method is called', () => {
+    it('Should call the local storage and remove the token', () => {
+      const removeLocal = spyOn(localStorage, 'removeItem').and.callThrough();
+      service.logOut();
+
+      expect(removeLocal).toHaveBeenCalled();
+    });
+  });
+
   describe("When there's no token set", () => {
     it('Should return void', () => {
       const getLocal = spyOn(localStorage, 'getItem').and.returnValue(null);

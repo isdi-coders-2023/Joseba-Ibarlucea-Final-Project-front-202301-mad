@@ -39,6 +39,6 @@ export class DriverDetailComponent {
 
   deleteDriver() {
     this.srv.deleteDriver(this.driver.id).subscribe();
-    this.router.navigateByUrl('/drivers');
+    // this.router.navigateByUrl('/drivers');
   }
 }

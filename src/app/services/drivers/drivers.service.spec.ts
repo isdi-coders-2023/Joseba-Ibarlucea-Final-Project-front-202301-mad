@@ -32,7 +32,7 @@ describe('DriversService', () => {
   });
 
   it('Should subscribe to queryDrivers from the service', () => {
-    service.queryDrivers().subscribe((res) => {
+    service.queryDrivers('1').subscribe((res) => {
       expect(res).toEqual([{} as Driver]);
     });
 
