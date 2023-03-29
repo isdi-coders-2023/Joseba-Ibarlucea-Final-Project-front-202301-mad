@@ -1,17 +1,52 @@
-<p>driver-detail works!</p>
+<section class="container">
+  <div class="logo-container">
+    <img [src]="driver.image" [alt]="driver.name" class="driver-logo" />
+  </div>
 
-<div>
-  <p>{{ driver.name }}</p>
-  <p>{{ driver.racingNumber }}</p>
-  <p>
-    {{ driver.id }}
-  </p>
-</div>
+  <div class="number-name">
+    <p class="number">
+      {{ driver.racingNumber }}
+    </p>
+    <h3>
+      {{ driver.name }}
+    </h3>
+  </div>
 
-<button *ngIf="info.role === 'Team Manager'" [routerLink]="path">
-  Update Driver
-</button>
+  <div class="info-container">
+    <div class="driver-info">
+      <h3 class="information">Team</h3>
+      <p>
+        {{ driver.team }}
+      </p>
+    </div>
+    <div class="driver-info">
+      <h3 class="information">Nationality</h3>
+      <p>
+        {{ driver.nationality }}
+      </p>
+    </div>
+    <div class="driver-info">
+      <h3 class="information">Podiums</h3>
+      <p>{{ driver.podiums }}</p>
+    </div>
+    <div class="driver-info">
+      <h3 class="information">Championships</h3>
+      <p>
+        {{ driver.championships }}
+      </p>
+    </div>
+  </div>
+  <div class="btns">
+    <button *ngIf="info.role === 'Team Manager'" [routerLink]="path">
+      Update Driver
+    </button>
 
-<button *ngIf="info.role === 'Team Manager'" (click)="deleteDriver()">
-  Delete Driver
-</button>
+    <button
+      *ngIf="info.role === 'Team Manager'"
+      (click)="deleteDriver()"
+      class="delete-btn"
+    >
+      Delete Driver
+    </button>
+  </div>
+</section>

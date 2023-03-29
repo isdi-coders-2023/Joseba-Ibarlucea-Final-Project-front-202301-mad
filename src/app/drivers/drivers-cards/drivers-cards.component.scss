@@ -4,15 +4,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
+  font-family: $titillium;
 
   ul {
     list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
     a {
       text-decoration: none;
+
+      color: black;
     }
     .driver-container {
       @include border-right;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .driver-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid $gray;
+
+        .driver-name {
+        }
+
+        h3 {
+          text-align: left;
+        }
+        p {
+          width: 40%;
+          text-align: right;
+        }
+
+        .driver-number {
+          font-family: $orbitron;
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+      }
     }
   }
 }

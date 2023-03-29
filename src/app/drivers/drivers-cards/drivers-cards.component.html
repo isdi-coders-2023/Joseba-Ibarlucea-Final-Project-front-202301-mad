@@ -2,10 +2,26 @@
   <h2>Drivers</h2>
 
   <ul>
-    <li *ngFor="let item of srv.drivers$ | async">
-      <a [routerLink]="item.id">
+    <li *ngFor="let driver of srv.drivers$ | async">
+      <a [routerLink]="driver.id">
         <div class="driver-container">
-          <p>{{ item.name }}</p>
+          <div class="driver-info">
+            <h3 class="driver-name">
+              {{ driver.name }}
+            </h3>
+            <p>
+              {{ driver.team }}
+            </p>
+          </div>
+          <div class="driver-info">
+            <h3>Number:</h3>
+            <p class="driver-number">
+              {{ driver.racingNumber }}
+            </p>
+          </div>
+          <div class="driver-image">
+            <img [src]="driver.image" alt="" />
+          </div>
         </div>
       </a>
     </li>
