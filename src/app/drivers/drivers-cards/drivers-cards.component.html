@@ -27,7 +27,19 @@
     </li>
   </ul>
 
-  <button *ngIf="info.role === 'Team Manager'" routerLink="add">
+  <button
+    class="load-btn btn"
+    (click)="queryMore()"
+    *ngIf="srv.count > (srv.drivers$ | async)!.length"
+  >
+    Load More
+  </button>
+
+  <button
+    *ngIf="info.role === 'Team Manager'"
+    routerLink="add"
+    class="load-btn btn"
+  >
     Add Driver
   </button>
 </section>

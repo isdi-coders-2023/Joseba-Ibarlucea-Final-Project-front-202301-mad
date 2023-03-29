@@ -9,26 +9,32 @@ import { UserService } from '../users/user.service';
   providedIn: 'root',
 })
 export class DriversService {
-  private query = 'http://localhost:4321/drivers';
+  private query = 'http://localhost:4321/drivers/?offset=';
   private add = 'http://localhost:4321/drivers/create';
   private update = 'http://localhost:4321/drivers/';
   private findId = 'http://localhost:4321/drivers/';
 
   drivers$: BehaviorSubject<Driver[]>;
+  driver: Driver[] = [];
+  count: number = 0;
   token: TokenRole = initialTokenRole;
   constructor(private http: HttpClient, private user: UserService) {
     const initialDriver: Driver[] = [];
     this.drivers$ = new BehaviorSubject(initialDriver);
   }
 
-  queryDrivers(): Observable<Driver[]> {
+  queryDrivers(offset: string): Observable<Driver[]> {
     this.user.token$.subscribe((t) => (this.token = t.results));
-    return this.http.get<{ results: Array<Driver> }>(this.query).pipe(
-      map((d) => {
-        this.drivers$.next(d.results);
-        return d.results;
-      })
-    );
+    return this.http
+      .get<{ results: Array<Driver>; count: number }>(this.query + offset)
+      .pipe(
+        map((d) => {
+          this.driver.push(...d.results);
+          this.count = d.count;
+          this.drivers$.next(this.driver);
+          return d.results;
+        })
+      );
   }
 
   addDriver(driver: Partial<Driver>): Observable<Partial<Driver>> {

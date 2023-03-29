@@ -52,7 +52,8 @@ export class AddUpdateDriverComponent {
       championships: this.driver.value.championships,
       podiums: this.driver.value.podiums,
       team: this.driver.value.team,
-      image: 'some',
+      image:
+        'https://p.kindpng.com/picc/s/24-248549_vector-graphics-computer-icons-clip-art-user-profile.png',
     };
 
     this.srv
@@ -91,7 +92,7 @@ export class AddUpdateDriverComponent {
       championships: Number(this.driver.value.championships),
       podiums: Number(this.driver.value.podiums),
       team: this.driver.value.team,
-      image: 'some',
+      image: 'SOME',
       id: this.id,
     };
 

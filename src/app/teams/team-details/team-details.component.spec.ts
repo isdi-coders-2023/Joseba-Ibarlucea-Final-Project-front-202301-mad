@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TeamService } from 'src/app/services/teams/team.service';
 import { TeamDetailsComponent } from './team-details.component';
 import { BehaviorSubject, of } from 'rxjs';
+import { Team } from 'src/types/types';
 
 describe('TeamDetailsComponent', () => {
   let component: TeamDetailsComponent;
@@ -18,6 +19,12 @@ describe('TeamDetailsComponent', () => {
         bestPosition: {
           position: 1,
           times: 2,
+        },
+        driver1: {
+          image: '',
+        },
+        driver2: {
+          image: '',
         },
       },
     ]),
@@ -54,23 +61,37 @@ describe('TeamDetailsComponent', () => {
   });
 
   it('should bring the new teams calling ngOnInit', () => {
-    mockTeamService.teams$ = new BehaviorSubject([
+    mockTeamService.teams$.next([
       {
         id: '123',
         bestPosition: {
           position: 1,
           times: 2,
         },
+        driver1: {
+          image: 'image2',
+        },
+        driver2: {
+          image: '',
+        },
       },
       {
         id: '456',
         bestPosition: {
-          position: 1,
-          times: 2,
+          position: 2,
+          times: 3,
+        },
+        driver1: {
+          image: 'test',
+        },
+        driver2: {
+          image: 'mocky',
         },
       },
     ]);
+
     component.ngOnInit();
+
     expect(mockTeamService.teams$).toBeTruthy();
   });
 });
