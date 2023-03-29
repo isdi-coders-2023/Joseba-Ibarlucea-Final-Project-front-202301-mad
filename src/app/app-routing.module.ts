@@ -7,6 +7,9 @@ import { DriverDetailComponent } from './drivers/driver-detail/driver-detail.com
 import { DriversCardsComponent } from './drivers/drivers-cards/drivers-cards.component';
 import { HomeComponent } from './home/home/home.component';
 import { RankingsCardsComponent } from './rankings/rankings-cards/rankings-cards.component';
+import { AboutComponent } from './statics/about/about.component';
+import { ContactComponent } from './statics/contact/contact.component';
+import { CopyrightComponent } from './statics/copyright/copyright.component';
 import { CardsComponent } from './teams/cards/cards.component';
 import { TeamDetailsComponent } from './teams/team-details/team-details.component';
 import { LoginComponent } from './users/login/login.component';
@@ -26,6 +29,9 @@ const routes: Routes = [
   { path: 'drivers/update/:id', component: AddUpdateDriverComponent },
   { path: 'drivers/:id', component: DriverDetailComponent },
   { path: 'rankings', component: RankingsCardsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'copyrights', component: CopyrightComponent },
 ];
 
 @NgModule({

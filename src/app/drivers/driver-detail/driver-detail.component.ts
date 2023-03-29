@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { catchError } from 'rxjs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DriversService } from 'src/app/services/drivers/drivers.service';
-import { UserService } from 'src/app/services/users/user.service';
 import { initialParam, initialTokenRole } from 'src/initial.values/values';
 import { Driver, TokenRole } from 'src/types/types';
 
@@ -17,7 +15,11 @@ export class DriverDetailComponent {
   params: Params = initialParam;
   path = ``;
   info: TokenRole = initialTokenRole;
-  constructor(public srv: DriversService, private route: ActivatedRoute) {}
+  constructor(
+    public srv: DriversService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((p) => (this.params = p));
@@ -37,5 +39,6 @@ export class DriverDetailComponent {
 
   deleteDriver() {
     this.srv.deleteDriver(this.driver.id).subscribe();
+    this.router.navigateByUrl('/drivers');
   }
 }
