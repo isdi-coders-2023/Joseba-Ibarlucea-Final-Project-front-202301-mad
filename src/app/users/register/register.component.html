@@ -35,7 +35,8 @@
           placeholder="Password"
         />
       </div>
-      <div>
+      <div class="favorite">
+        <p>Favorite Team:</p>
         <select formControlName="favoriteTeam">
           <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
         </select>

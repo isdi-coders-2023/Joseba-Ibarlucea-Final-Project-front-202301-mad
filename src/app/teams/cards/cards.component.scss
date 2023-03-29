@@ -8,13 +8,16 @@
     font-family: $titillium;
     text-decoration: underline $f1-red;
     text-underline-offset: 0.4rem;
+    font-size: 2rem;
   }
   ul {
+    margin-top: 2.5rem;
     list-style: none;
     display: flex;
     flex-direction: column;
     padding: 0;
     gap: 3.5rem;
+    margin-bottom: 3.5rem;
 
     a {
       text-decoration: none;
@@ -33,7 +36,8 @@
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid $gray;
-
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   .team-name {
     font-family: $titillium;
     color: black;
@@ -70,6 +74,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-top: 1rem;
 
   .team-car {
     width: 80%;

@@ -6,13 +6,22 @@
   align-items: center;
   font-family: $titillium;
 
+  h2 {
+    font-family: $titillium;
+    text-decoration: underline $f1-red;
+    text-underline-offset: 0.4rem;
+    font-size: 2rem;
+  }
+
   ul {
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
     list-style: none;
     padding: 0;
     width: 80%;
+    margin-bottom: 3.5rem;
     .driver-container {
       @include border-right;
     }
